@@ -6,15 +6,20 @@
     container.style.flexWrap = 'wrap';
     container.style.width = '800px';
     container.style.height = '800px';
+    container.style.margin = 'auto';
 
-    /*
+    const audio = document.createElement('audio');
+    audio.src = 'redbone-170380.mp3';
+    audio.controls = true;
+
+    
     function getRandomColor() {
         const r = Math.floor(Math.random() * 256);
         const g = Math.floor(Math.random() * 256);
         const b = Math.floor(Math.random() * 256);
         return `rgb(${r},${g},${b})`;
     }
-    */
+    
     
     
     function gradientColor(row, col) {
@@ -27,7 +32,7 @@
     
 
     function updateTileColor(tile) {
-        tile.style.backgroundColor = gradientColor()
+        tile.style.backgroundColor = getRandomColor();
         setInterval(() => updateTileColor(tile), 2000);
     }
 
@@ -38,7 +43,6 @@
       const tile = document.createElement('div');//for each row and col create a tile
       tile.style.width = '12.5%'; 
       tile.style.height = '12.5%';
-      tile.style.backgroundColor = gradientColor(row, col)
       tile.style.borderRadius = '100px';
       
 
@@ -57,9 +61,11 @@
       
       // Append the tile to the container
       container.appendChild(tile);//add tiles into the container
+      updateTileColor(tile);
      
     }
   }
 
 
   body.appendChild(container);
+  body.appendChild(audio);
