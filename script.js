@@ -1,43 +1,39 @@
     const body = document.body;
-    console.log(body)
+    console.log(body);
 
     const container = document.createElement('div');
     container.style.display = 'flex';
     container.style.flexWrap = 'wrap';
     container.style.width = '800px';
     container.style.height = '800px';
-/*
-  const tile = document.createElement('div');
-  tile.style.width = '12.5%';
-  tile.style.height = '12.5%';
-  tile.style.backgroundColor = 'teal';
 
-  const tile2 = document.createElement('div');
-  tile2.style.width = '12.5%';
-  tile2.style.height = '12.5%';
-  tile2.style.backgroundColor = 'black';
+    function getRandomColor() {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        return `rgb(${r},${g},${b})`;
+    }
 
 
-  container.appendChild(tile);
-  container.appendChild(tile2);
-  */
-
-  for (let row = 0; row < 8; row++) {
-    for (let col = 0; col < 8; col++) {
+  for (let row = 0; row < 8; row++) {//for loop that creates a row
+    for (let col = 0; col < 8; col++) {//for loop that crates a col
       // Create a tile
-      const tile = document.createElement('div');
-      tile.style.width = '12.5%';
+      const tile = document.createElement('div');//for each row and col create a tile
+      tile.style.width = '12.5%'; 
       tile.style.height = '12.5%';
+      tile.style.backgroundColor = getRandomColor();
   
+      /*
       // Use row and column indices to alternate colors
-      if ((row + col) % 2 === 0) {
-        tile.style.backgroundColor = 'teal';
+      if ((row + col) % 2 === 0) {//if the row and the col is even
+        tile.style.backgroundColor = 'teal';//background color is teal
       } else {
-        tile.style.backgroundColor = 'black';
+        tile.style.backgroundColor = 'black';//if not even background color black
       }
+      */
   
       // Append the tile to the container
-      container.appendChild(tile);
+      container.appendChild(tile);//add tiles into the container
     }
   }
 
